@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB06TMS127_1718Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="accnt_transactions">
+    <Key>
+      <PropertyRef Name="transaction_id" />
+    </Key>
+    <Property Name="transaction_date" Type="date" />
+    <Property Name="prev_balance" Type="int" />
+    <Property Name="current_balance" Type="int" />
+    <Property Name="type" Type="varchar" MaxLength="20" />
+    <Property Name="description" Type="varchar" MaxLength="20" />
+    <Property Name="transaction_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="account_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="account_creation">
+    <Key>
+      <PropertyRef Name="accountid" />
+    </Key>
+    <Property Name="customerid" Type="int" />
+    <Property Name="accounttype1" Type="varchar" MaxLength="20" />
+    <Property Name="accountid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="accountstatus" Type="varchar" MaxLength="30" />
+    <Property Name="statusmessage" Type="varchar" MaxLength="60" />
+    <Property Name="lastupdated" Type="datetime" />
+    <Property Name="amount" Type="bigint" />
+  </EntityType>
+  <EntityType Name="customer_account_creation">
+    <Key>
+      <PropertyRef Name="customerid" />
+    </Key>
+    <Property Name="customerid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerssnid" Type="int" />
+    <Property Name="customername" Type="varchar" MaxLength="40" />
+    <Property Name="customerage" Type="int" />
+    <Property Name="addressline1" Type="varchar" MaxLength="40" />
+    <Property Name="addressline2" Type="varchar" MaxLength="40" />
+    <Property Name="city" Type="varchar" MaxLength="30" />
+    <Property Name="cstate" Type="varchar" MaxLength="30" />
+    <Property Name="errormessage" Type="varchar" MaxLength="60" />
+    <Property Name="lastupdated" Type="datetime" />
+    <Property Name="activationstatus" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__accnt_tra__accou__5812160E">
+    <End Role="account_creation" Type="Self.account_creation" Multiplicity="1" />
+    <End Role="accnt_transactions" Type="Self.accnt_transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account_creation">
+        <PropertyRef Name="accountid" />
+      </Principal>
+      <Dependent Role="accnt_transactions">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__account_c__custo__46E78A0C">
+    <End Role="customer_account_creation" Type="Self.customer_account_creation" Multiplicity="0..1" />
+    <End Role="account_creation" Type="Self.account_creation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer_account_creation">
+        <PropertyRef Name="customerid" />
+      </Principal>
+      <Dependent Role="account_creation">
+        <PropertyRef Name="customerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="account_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerid" Type="int" Mode="In" />
+    <Parameter Name="accounttype1" Type="varchar" Mode="In" />
+    <Parameter Name="accountid" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="account_insertion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerid" Type="int" Mode="In" />
+    <Parameter Name="accounttype1" Type="varchar" Mode="In" />
+    <Parameter Name="accountid" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="account_view" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="customer_creation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerssnid" Type="int" Mode="In" />
+    <Parameter Name="customername" Type="varchar" Mode="In" />
+    <Parameter Name="customerage" Type="int" Mode="In" />
+    <Parameter Name="addressline1" Type="varchar" Mode="In" />
+    <Parameter Name="addressline2" Type="varchar" Mode="In" />
+    <Parameter Name="city" Type="varchar" Mode="In" />
+    <Parameter Name="cstate" Type="varchar" Mode="In" />
+    <Parameter Name="customerid" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="delete_customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleting_account" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accountid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deposit_money" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accntid" Type="int" Mode="In" />
+    <Parameter Name="amt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="mini_statement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="startdate" Type="date" Mode="In" />
+    <Parameter Name="enddate" Type="date" Mode="In" />
+    <Parameter Name="num" Type="int" Mode="In" />
+  </Function>
+  <Function Name="readd_customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="searchbyacc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accountid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="searchbycust" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="transfer_money" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accntid" Type="int" Mode="In" />
+    <Parameter Name="targetid" Type="int" Mode="In" />
+    <Parameter Name="amt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="update_customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerid" Type="int" Mode="In" />
+    <Parameter Name="customername" Type="varchar" Mode="In" />
+    <Parameter Name="addressline1" Type="varchar" Mode="In" />
+    <Parameter Name="addressline2" Type="varchar" Mode="In" />
+    <Parameter Name="city" Type="varchar" Mode="In" />
+    <Parameter Name="cstate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="view_customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="withdraw_money" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accntid" Type="int" Mode="In" />
+    <Parameter Name="amt" Type="int" Mode="In" />
+  </Function>
+  <Function Name="xsearch_custproc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="xsearch_ssnid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerssnid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="xsplogin13" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DB06TMS127_1718ModelStoreContainer">
+    <EntitySet Name="accnt_transactions" EntityType="Self.accnt_transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="account_creation" EntityType="Self.account_creation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer_account_creation" EntityType="Self.customer_account_creation" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__accnt_tra__accou__5812160E" Association="Self.FK__accnt_tra__accou__5812160E">
+      <End Role="account_creation" EntitySet="account_creation" />
+      <End Role="accnt_transactions" EntitySet="accnt_transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__account_c__custo__46E78A0C" Association="Self.FK__account_c__custo__46E78A0C">
+      <End Role="customer_account_creation" EntitySet="customer_account_creation" />
+      <End Role="account_creation" EntitySet="account_creation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

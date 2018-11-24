@@ -1,0 +1,72 @@
+﻿@model IEnumerable<RetailBanking.Models.searchbyacc_Result>
+
+@{
+    ViewBag.Title = "SearchAccount";
+}
+
+<h2>SearchAccount</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <div id="txtBox">
+        @Html.Label("Enter ID")
+        <input type="text" name="q" />
+    </div>
+    <div id="radioList">
+        @Html.RadioButton("SearchType", "0")
+        @Html.Label("Customer ID")
+        @Html.RadioButton("SearchType", "1", true)
+        @Html.Label("Account ID")
+
+    </div>
+    <div id="btnSearch">
+        <input type="submit" value="Search" id="btnSubmit" />
+    </div>
+}
+
+@if (Model != null)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accountid)
+        </th>        <th>
+            @Html.DisplayNameFor(model => model.accounttype1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accountid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accounttype1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+        </td>
+        <td>
+            @Html.ActionLink("Deposit", "Deposit", new { id = item.customerid }) |
+            @Html.ActionLink("Transfer", "Transfer", new { id = item.customerid }) |
+            @Html.ActionLink("Withdraw", "Withdraw", new { id = item.customerid })
+        </td>
+    </tr>
+}
+
+</table>
+}

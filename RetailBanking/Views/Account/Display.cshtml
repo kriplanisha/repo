@@ -1,0 +1,79 @@
+﻿@model IEnumerable<RetailBanking.Models.account_view_Result>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Insert")
+</p>
+<script>
+ $(document).ready(function () {
+   $("#warn").hide();
+    @if (ViewBag.warning != null)
+    {
+         Response.Write("<script>alert('" + @ViewBag.warning + "')</script>");
+            @:$("#warn").show();
+      }
+    else
+    {
+        @:$("#warn").hide();
+      }
+    @ViewBag.warning="";});
+</script>
+
+<h2>ViewAll</h2>
+<div class="alert alert-warning" id="warn">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Warning!</strong> @ViewBag.warning
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.accountid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accounttype1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accountstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusmessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastupdated)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.accountid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accounttype1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accountstatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusmessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastupdated)
+        </td>
+        <td>
+            @Html.ActionLink("WithdrawIndex", "WithdrawIndex","Transaction", new { id=item.accountid },null) |
+            @Html.ActionLink("Details", "Details", new { id=item.customerid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.accountid })
+        </td>
+    </tr>
+}
+
+</table>

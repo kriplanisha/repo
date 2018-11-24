@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="moneyTransactionModelStoreContainer" CdmEntityContainer="moneyTransferEntities">
+    <FunctionImportMapping FunctionImportName="deposit_money" FunctionName="moneyTransactionModel.Store.deposit_money" />
+    <FunctionImportMapping FunctionImportName="transfer_money" FunctionName="moneyTransactionModel.Store.transfer_money" />
+    <FunctionImportMapping FunctionImportName="withdraw_money" FunctionName="moneyTransactionModel.Store.withdraw_money" />
+  </EntityContainerMapping>
+</Mapping>

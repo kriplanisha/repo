@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB06TMS127_1718ModelStoreContainer" CdmEntityContainer="DB06TMS127_1718Entities">
+    <EntitySetMapping Name="customer_account_creation">
+      <EntityTypeMapping TypeName="DB06TMS127_1718Model.customer_account_creation">
+        <MappingFragment StoreEntitySet="customer_account_creation">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="customerssnid" ColumnName="customerssnid" />
+          <ScalarProperty Name="customername" ColumnName="customername" />
+          <ScalarProperty Name="customerage" ColumnName="customerage" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="cstate" ColumnName="cstate" />
+          <ScalarProperty Name="errormessage" ColumnName="errormessage" />
+          <ScalarProperty Name="lastupdated" ColumnName="lastupdated" />
+          <ScalarProperty Name="activationstatus" ColumnName="activationstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="customer_creation" FunctionName="DB06TMS127_1718Model.Store.customer_creation" />
+    <FunctionImportMapping FunctionImportName="view_customer" FunctionName="DB06TMS127_1718Model.Store.view_customer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.view_customer_Result">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="customerssnid" ColumnName="customerssnid" />
+          <ScalarProperty Name="activationstatus" ColumnName="activationstatus" />
+          <ScalarProperty Name="errormessage" ColumnName="errormessage" />
+          <ScalarProperty Name="lastupdated" ColumnName="lastupdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="customerview" FunctionName="DB06TMS127_1718Model.Store.view_customer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.view_customer_Result">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="customerssnid" ColumnName="customerssnid" />
+          <ScalarProperty Name="activationstatus" ColumnName="activationstatus" />
+          <ScalarProperty Name="errormessage" ColumnName="errormessage" />
+          <ScalarProperty Name="lastupdated" ColumnName="lastupdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="update_customer" FunctionName="DB06TMS127_1718Model.Store.update_customer" />
+    <FunctionImportMapping FunctionImportName="delete_customer" FunctionName="DB06TMS127_1718Model.Store.delete_customer" />
+    <FunctionImportMapping FunctionImportName="del" FunctionName="DB06TMS127_1718Model.Store.delete_customer" />
+    <FunctionImportMapping FunctionImportName="readd_customer" FunctionName="DB06TMS127_1718Model.Store.readd_customer" />
+    <FunctionImportMapping FunctionImportName="xsplogin13" FunctionName="DB06TMS127_1718Model.Store.xsplogin13">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.xsplogin13_Result">
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="account_insert" FunctionName="DB06TMS127_1718Model.Store.account_insert" />
+    <EntitySetMapping Name="account_creation">
+      <EntityTypeMapping TypeName="DB06TMS127_1718Model.account_creation">
+        <MappingFragment StoreEntitySet="account_creation">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="lastupdated" ColumnName="lastupdated" />
+          <ScalarProperty Name="statusmessage" ColumnName="statusmessage" />
+          <ScalarProperty Name="accountstatus" ColumnName="accountstatus" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="accounttype1" ColumnName="accounttype1" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="account_insertion" FunctionName="DB06TMS127_1718Model.Store.account_insertion" />
+    <FunctionImportMapping FunctionImportName="account_view" FunctionName="DB06TMS127_1718Model.Store.account_view">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.account_view_Result">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="accounttype1" ColumnName="accounttype1" />
+          <ScalarProperty Name="accountstatus" ColumnName="accountstatus" />
+          <ScalarProperty Name="statusmessage" ColumnName="statusmessage" />
+          <ScalarProperty Name="lastupdated" ColumnName="lastupdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="viewingaccount" FunctionName="DB06TMS127_1718Model.Store.account_view">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.account_view_Result">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="accounttype1" ColumnName="accounttype1" />
+          <ScalarProperty Name="accountstatus" ColumnName="accountstatus" />
+          <ScalarProperty Name="statusmessage" ColumnName="statusmessage" />
+          <ScalarProperty Name="lastupdated" ColumnName="lastupdated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="deleting_account" FunctionName="DB06TMS127_1718Model.Store.deleting_account" />
+    <FunctionImportMapping FunctionImportName="deposit_money" FunctionName="DB06TMS127_1718Model.Store.deposit_money" />
+    <FunctionImportMapping FunctionImportName="transfer_money" FunctionName="DB06TMS127_1718Model.Store.transfer_money" />
+    <FunctionImportMapping FunctionImportName="withdraw_money" FunctionName="DB06TMS127_1718Model.Store.withdraw_money" />
+    <EntitySetMapping Name="accnt_transactions">
+      <EntityTypeMapping TypeName="DB06TMS127_1718Model.accnt_transactions">
+        <MappingFragment StoreEntitySet="accnt_transactions">
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="current_balance" ColumnName="current_balance" />
+          <ScalarProperty Name="prev_balance" ColumnName="prev_balance" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="searchbyacc" FunctionName="DB06TMS127_1718Model.Store.searchbyacc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.searchbyacc_Result">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="accounttype1" ColumnName="accounttype1" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="searchbycust" FunctionName="DB06TMS127_1718Model.Store.searchbycust">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.searchbyacc_Result">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+          <ScalarProperty Name="accounttype1" ColumnName="accounttype1" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xsearch_custproc" FunctionName="DB06TMS127_1718Model.Store.xsearch_custproc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.xsearch_custproc_Result">
+          <ScalarProperty Name="customername" ColumnName="customername" />
+          <ScalarProperty Name="customerage" ColumnName="customerage" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="customerssnid" ColumnName="customerssnid" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xsearch_ssnid" FunctionName="DB06TMS127_1718Model.Store.xsearch_ssnid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.xsearch_custproc_Result">
+          <ScalarProperty Name="customername" ColumnName="customername" />
+          <ScalarProperty Name="customerage" ColumnName="customerage" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="customerssnid" ColumnName="customerssnid" />
+          <ScalarProperty Name="addressline1" ColumnName="addressline1" />
+          <ScalarProperty Name="addressline2" ColumnName="addressline2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="mini_statement" FunctionName="DB06TMS127_1718Model.Store.mini_statement">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model.mini_statement_Result">
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="prev_balance" ColumnName="prev_balance" />
+          <ScalarProperty Name="current_balance" ColumnName="current_balance" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

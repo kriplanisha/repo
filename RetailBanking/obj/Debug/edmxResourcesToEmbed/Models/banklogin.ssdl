@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB06TMS127_1718Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB06TMS127_1718.dbo.login_bankexec' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="login_bankexec">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="pwd" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="pwd" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Function Name="xsplogin12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DB06TMS127_1718Model1StoreContainer">
+    <EntitySet Name="login_bankexec" EntityType="Self.login_bankexec" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [login_bankexec].[username] AS [username], 
+    [login_bankexec].[pwd] AS [pwd]
+    FROM [dbo].[login_bankexec] AS [login_bankexec]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

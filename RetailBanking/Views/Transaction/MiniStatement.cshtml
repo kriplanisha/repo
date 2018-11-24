@@ -1,0 +1,98 @@
+﻿@model IEnumerable<RetailBanking.Models.mini_statement_Result>
+
+@{
+    ViewBag.Title = "MiniStatement";
+}
+
+<script>
+    $(document).ready(function () {
+        $("#start").datepicker({ dateFormat: 'dd/mm/yy' });
+        $("#end").datepicker({ dateFormat: 'dd/mm/yy' });
+    });
+</script>
+
+<h2>MiniStatement</h2>
+@using (Html.BeginForm())
+{
+    <div id="txtBox">
+        @Html.Label("Enter ID :")
+        <input type="text" name="q" />
+    </div>
+    @Html.Label("Select Startdate :")
+    <input type="text" id="start" name="start_date" />
+    @Html.Label("Select Startdate :")
+    <input type="text" id="end" name="end_date" />
+
+
+    @Html.Label("Top Transactions:")
+    <select name="rows">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>
+
+    <div id="btnSearch">
+        <input type="submit" value="Search" id="btnSubmit" />
+    </div>
+}
+
+@if (Model != null)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.transaction_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prev_balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.current_balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.account_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.transaction_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prev_balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.current_balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.account_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.transaction_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.transaction_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.transaction_id })
+        </td>
+    </tr>
+}
+
+</table>
+}

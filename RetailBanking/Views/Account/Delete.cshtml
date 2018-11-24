@@ -1,0 +1,64 @@
+﻿@model RetailBanking.Models.account_creation
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>account_creation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.accounttype1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accounttype1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accountstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accountstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusmessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusmessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastupdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastupdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_account_creation.customername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_account_creation.customername)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

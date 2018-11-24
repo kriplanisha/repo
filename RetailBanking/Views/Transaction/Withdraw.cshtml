@@ -1,0 +1,77 @@
+﻿@model RetailBanking.Models.accnt_transactions
+
+@{
+    ViewBag.Title = "Withdraw";
+}
+
+<h2>Withdraw</h2>
+<script>
+    $(document).ready(function () {
+        @if (ViewBag.warning != null)
+        {
+            Response.Write("<script>alert('"+@ViewBag.warning+"')</script>");
+            @:$("#warn").show();
+        }
+        else
+        {
+            @:$("#warn").hide();
+        }
+        @ViewBag.warning="";
+
+       @if (ViewBag.success != "")
+                {
+                    @:$("#done").show();
+                }
+                else
+                {
+                    @:$("#done").hide();
+                }
+        @ViewBag.success="";
+        });
+</script>
+
+<h2>ViewAll</h2>
+<div class="alert alert-warning" id="warn">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Warning!</strong> @ViewBag.warning
+</div>
+<div class="alert alert-success" id="done">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Warning!</strong> @ViewBag.success
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>accnt_transactions</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+  
+
+
+
+        <div class="form-group">
+            @Html.Label("Amount to be Withdrawn", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" id="amount" name="amount" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Withdraw" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

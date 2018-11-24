@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RetailBanking.Models.view_customer_Result>
+
+@{
+    ViewBag.Title = "display";
+}
+
+<h2>display</h2>
+
+<p>
+    @Html.ActionLink("Create New", "insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerssnid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activationstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.errormessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastupdated)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerssnid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activationstatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.errormessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastupdated)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.customerid }) |
+            @if (item.activationstatus == "inactive")
+            {
+                @Html.ActionLink("Allocate", "Allocate", new { id = item.customerid })
+            }
+             |@Html.ActionLink("Delete", "Delete", new { id = item.customerid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<RetailBanking.Models.xsearch_custproc_Result>
+
+@{
+    ViewBag.Title = "search";
+}
+
+<h2>Search ID</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+<div id="txtBox">
+    @Html.Label("Enter ID ")
+    <input type="text" name="q" />
+</div>
+<div id="radioList">
+    @Html.RadioButton("SearchType", "0")
+    @Html.Label("Customer ID")
+    @Html.RadioButton("SearchType", "1", true)
+    @Html.Label("Customer SSNID")
+
+</div>
+<div id="btnSearch">
+    <input type="submit" value="Search" id="btnSubmit" />
+</div>
+}
+
+@if (Model != null)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerssnid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addressline1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addressline2)
+        </th>
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerssnid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.addressline1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.addressline2)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.customername }) |
+            @Html.ActionLink("Details", "Details", new { id = item.customername }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.customername })
+        </td>
+    </tr>
+}
+
+</table>
+}

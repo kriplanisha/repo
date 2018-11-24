@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB06TMS127_1718Model1StoreContainer" CdmEntityContainer="DB06TMS127_1718Entities1">
+    <EntitySetMapping Name="login_bankexec">
+      <EntityTypeMapping TypeName="DB06TMS127_1718Model1.login_bankexec">
+        <MappingFragment StoreEntitySet="login_bankexec">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="xsplogin12" FunctionName="DB06TMS127_1718Model1.Store.xsplogin12">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model1.xsplogin12_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="login_detail" ColumnName="login_detail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

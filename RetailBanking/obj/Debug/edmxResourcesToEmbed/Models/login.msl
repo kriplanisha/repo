@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB06TMS127_1718Model1StoreContainer" CdmEntityContainer="DB06TMS127_1718Entities2">
+    <EntitySetMapping Name="login_bankexe">
+      <EntityTypeMapping TypeName="DB06TMS127_1718Model1.login_bankexe">
+        <MappingFragment StoreEntitySet="login_bankexe">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="login_detail" ColumnName="login_detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="xsplogin12" FunctionName="DB06TMS127_1718Model1.Store.xsplogin12">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model1.xsplogin12_Result1">
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="xsplogin13" FunctionName="DB06TMS127_1718Model1.Store.xsplogin13">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB06TMS127_1718Model1.xsplogin13_Result">
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

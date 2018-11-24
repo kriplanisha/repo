@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB06TMS127_1718Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="customer_account_creation">
+    <Key>
+      <PropertyRef Name="customerid" />
+    </Key>
+    <Property Name="customerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customerssnid" Type="Int32" />
+    <Property Name="customername" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="customerage" Type="Int32" />
+    <Property Name="addressline1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="addressline2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cstate" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="errormessage" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="lastupdated" Type="DateTime" Precision="3" />
+    <Property Name="activationstatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="account_creation" Relationship="DB06TMS127_1718Model.FK__account_c__custo__3B75D760" FromRole="customer_account_creation" ToRole="account_creation" />
+  </EntityType>
+  <EntityContainer Name="DB06TMS127_1718Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="customer_account_creation" EntityType="Self.customer_account_creation" />
+    <FunctionImport Name="customer_creation">
+      <Parameter Name="customerssnid" Mode="In" Type="Int32" />
+      <Parameter Name="customername" Mode="In" Type="String" />
+      <Parameter Name="customerage" Mode="In" Type="Int32" />
+      <Parameter Name="addressline1" Mode="In" Type="String" />
+      <Parameter Name="addressline2" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="cstate" Mode="In" Type="String" />
+      <Parameter Name="customerid" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="view_customer" ReturnType="Collection(DB06TMS127_1718Model.view_customer_Result)" />
+    <FunctionImport Name="customerview" ReturnType="Collection(DB06TMS127_1718Model.view_customer_Result)" />
+    <FunctionImport Name="update_customer">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+      <Parameter Name="customername" Mode="In" Type="String" />
+      <Parameter Name="addressline1" Mode="In" Type="String" />
+      <Parameter Name="addressline2" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="cstate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="delete_customer">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="del" EntitySet="customer_account_creation" ReturnType="Collection(DB06TMS127_1718Model.customer_account_creation)">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="readd_customer">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xsplogin13" ReturnType="Collection(DB06TMS127_1718Model.xsplogin13_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="account_insert">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+      <Parameter Name="accounttype1" Mode="In" Type="String" />
+      <Parameter Name="accountid" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="account_creation" EntityType="DB06TMS127_1718Model.account_creation" />
+    <AssociationSet Name="FK__account_c__custo__3B75D760" Association="DB06TMS127_1718Model.FK__account_c__custo__3B75D760">
+      <End Role="customer_account_creation" EntitySet="customer_account_creation" />
+      <End Role="account_creation" EntitySet="account_creation" />
+    </AssociationSet>
+    <FunctionImport Name="account_insertion">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+      <Parameter Name="accounttype1" Mode="In" Type="String" />
+      <Parameter Name="accountid" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="account_view" ReturnType="Collection(DB06TMS127_1718Model.account_view_Result)" />
+    <FunctionImport Name="viewingaccount" ReturnType="Collection(DB06TMS127_1718Model.account_view_Result)" />
+    <FunctionImport Name="delete_account">
+      <Parameter Name="accountid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delaccount" EntitySet="account_creation" ReturnType="Collection(DB06TMS127_1718Model.account_creation)">
+      <Parameter Name="accountid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleting_account">
+      <Parameter Name="accountid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deposit_money">
+      <Parameter Name="accntid" Mode="In" Type="Int32" />
+      <Parameter Name="amt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="transfer_money">
+      <Parameter Name="accntid" Mode="In" Type="Int32" />
+      <Parameter Name="targetid" Mode="In" Type="Int32" />
+      <Parameter Name="amt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="withdraw_money">
+      <Parameter Name="accntid" Mode="In" Type="Int32" />
+      <Parameter Name="amt" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="accnt_transactions" EntityType="DB06TMS127_1718Model.accnt_transactions" />
+    <AssociationSet Name="FK__accnt_tra__accou__5812160E" Association="DB06TMS127_1718Model.FK__accnt_tra__accou__5812160E">
+      <End Role="account_creation" EntitySet="account_creation" />
+      <End Role="accnt_transactions" EntitySet="accnt_transactions" />
+    </AssociationSet>
+    <FunctionImport Name="searchbyacc" ReturnType="Collection(DB06TMS127_1718Model.searchbyacc_Result)">
+      <Parameter Name="accountid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="searchbycust" ReturnType="Collection(DB06TMS127_1718Model.searchbyacc_Result)">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xsearch_custproc" ReturnType="Collection(DB06TMS127_1718Model.xsearch_custproc_Result)">
+      <Parameter Name="customerid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="xsearch_ssnid" ReturnType="Collection(DB06TMS127_1718Model.xsearch_custproc_Result)">
+      <Parameter Name="customerssnid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="mini_statement" ReturnType="Collection(DB06TMS127_1718Model.mini_statement_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="num" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="view_customer_Result">
+    <Property Type="Int32" Name="customerid" Nullable="false" />
+    <Property Type="Int32" Name="customerssnid" Nullable="true" />
+    <Property Type="String" Name="activationstatus" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="errormessage" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="lastupdated" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="xsplogin13_Result">
+    <Property Type="String" Name="pwd" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="type" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="account_creation">
+    <Key>
+      <PropertyRef Name="accountid" />
+    </Key>
+    <Property Name="customerid" Type="Int32" />
+    <Property Name="accounttype1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="accountid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accountstatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="statusmessage" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="lastupdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="customer_account_creation" Relationship="DB06TMS127_1718Model.FK__account_c__custo__3B75D760" FromRole="account_creation" ToRole="customer_account_creation" />
+    <Property Name="amount" Type="Int64" />
+    <NavigationProperty Name="accnt_transactions" Relationship="DB06TMS127_1718Model.FK__accnt_tra__accou__5812160E" FromRole="account_creation" ToRole="accnt_transactions" />
+  </EntityType>
+  <Association Name="FK__account_c__custo__3B75D760">
+    <End Type="DB06TMS127_1718Model.customer_account_creation" Role="customer_account_creation" Multiplicity="0..1" />
+    <End Type="DB06TMS127_1718Model.account_creation" Role="account_creation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer_account_creation">
+        <PropertyRef Name="customerid" />
+      </Principal>
+      <Dependent Role="account_creation">
+        <PropertyRef Name="customerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="account_view_Result">
+    <Property Type="Int32" Name="customerid" Nullable="true" />
+    <Property Type="Int32" Name="accountid" Nullable="false" />
+    <Property Type="String" Name="accounttype1" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="accountstatus" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="statusmessage" Nullable="true" MaxLength="60" />
+    <Property Type="DateTime" Name="lastupdated" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="accnt_transactions">
+    <Key>
+      <PropertyRef Name="transaction_id" />
+    </Key>
+    <Property Name="transaction_date" Type="DateTime" Precision="0" />
+    <Property Name="prev_balance" Type="Int32" />
+    <Property Name="current_balance" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="transaction_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="account_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="account_creation" Relationship="DB06TMS127_1718Model.FK__accnt_tra__accou__5812160E" FromRole="accnt_transactions" ToRole="account_creation" />
+  </EntityType>
+  <Association Name="FK__accnt_tra__accou__5812160E">
+    <End Type="DB06TMS127_1718Model.account_creation" Role="account_creation" Multiplicity="1" />
+    <End Type="DB06TMS127_1718Model.accnt_transactions" Role="accnt_transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account_creation">
+        <PropertyRef Name="accountid" />
+      </Principal>
+      <Dependent Role="accnt_transactions">
+        <PropertyRef Name="account_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="searchbyacc_Result">
+    <Property Type="Int32" Name="customerid" Nullable="true" />
+    <Property Type="Int32" Name="accountid" Nullable="false" />
+    <Property Type="String" Name="accounttype1" Nullable="true" MaxLength="20" />
+    <Property Type="Int64" Name="amount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="searchbycust_Result">
+    <Property Type="Int32" Name="customerid" Nullable="true" />
+    <Property Type="Int32" Name="accountid" Nullable="false" />
+    <Property Type="String" Name="accounttype1" Nullable="true" MaxLength="20" />
+    <Property Type="Int64" Name="amount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="xsearch_custproc_Result">
+    <Property Type="String" Name="customername" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="customerage" Nullable="true" />
+    <Property Type="Int32" Name="customerid" Nullable="false" />
+    <Property Type="Int32" Name="customerssnid" Nullable="true" />
+    <Property Type="String" Name="addressline1" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="addressline2" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="xsearch_ssnid_Result">
+    <Property Type="String" Name="customername" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="customerage" Nullable="true" />
+    <Property Type="Int32" Name="customerid" Nullable="false" />
+    <Property Type="Int32" Name="customerssnid" Nullable="true" />
+    <Property Type="String" Name="addressline1" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="addressline2" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="mini_statement_Result">
+    <Property Type="DateTime" Name="transaction_date" Nullable="true" />
+    <Property Type="Int32" Name="prev_balance" Nullable="true" />
+    <Property Type="Int32" Name="current_balance" Nullable="true" />
+    <Property Type="String" Name="type" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="transaction_id" Nullable="false" />
+    <Property Type="Int32" Name="account_id" Nullable="false" />
+  </ComplexType>
+</Schema>

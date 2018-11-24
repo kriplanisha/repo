@@ -1,0 +1,66 @@
+﻿@model RetailBanking.Models.account_creation
+
+@{
+    ViewBag.Title = "WithdrawIndex";
+}
+
+<h2>WithdrawIndex</h2>
+
+<div>
+    <h4>account_creation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.accounttype1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accounttype1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accountstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accountstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusmessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusmessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastupdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastupdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_account_creation.customername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_account_creation.customername)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Ready to Withdraw", "Withdraw", new { id = Model.accountid }) |
+
+</p>
