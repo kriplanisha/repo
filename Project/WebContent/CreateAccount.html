@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<!-- Basic Page Needs
+        ================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" type="image/png" href="images/favicon.png">
+ <title>SICURO BANK</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<!-- Mobile Specific Metas
+        ================================================== -->
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Template CSS Files
+        ================================================== -->
+<!-- Twitter Bootstrs CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Ionicons Fonts Css -->
+<link rel="stylesheet" href="css/ionicons.min.css">
+<!-- animate css -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Hero area slider css-->
+<link rel="stylesheet" href="css/slider.css">
+<!-- owl craousel css -->
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/jquery.fancybox.css">
+<!-- template main css file -->
+<link rel="stylesheet" href="css/main.css">
+<!-- responsive css -->
+<link rel="stylesheet" href="css/responsive.css">
+
+<!-- Template Javascript Files
+        ================================================== -->
+<!-- modernizr js -->
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+<!-- jquery -->
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- owl carouserl js -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- bootstrap js -->
+
+<script src="js/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="js/wow.min.js"></script>
+<!-- slider js -->
+<script src="js/slider.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script >
+function digitnumeric()
+{
+	var digit = document.table.custid.value;
+	var digit1= document.table.depamt.value;
+	
+	 var phoneno = /^\d{9}$/; 
+	
+	if(digit==" " ||digit=="")
+		{
+		alert("Customer_id can not be empty \n please enter the Customer_id ");
+		return false;
+		}
+	else if(!(digit.match(phoneno)))
+		{
+		if(digit<0)
+		{
+		alert("Customer_id should  not contain negative values");
+		return false;
+		}
+		else{
+		alert("Customer_id should contain nine digit numerics");
+		return false;
+		}
+		
+	}
+	
+	
+
+  
+	
+		
+	   if(digit1==" " ||digit1=="")
+		{
+		alert("deposit can not be empty");
+		return false;
+		}
+		
+	   else if(digit1 < 0)
+		{
+		alert("Amount should  not contain negative values");
+		return false;
+		}
+	   else if(isNaN(digit1))
+	   {
+			alert("Enter valid amount");
+			return false;
+			}
+		
+	}</script>
+</head>
+<body>
+	<!--
+        ==================================================
+        Header Section Start
+        ================================================== -->
+	<header id="top-bar" class="navbar-fixed-top animated-header">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- responsive nav button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!-- /responsive nav button -->
+
+				<!-- logo -->
+				<div class="navbar-brand">
+                        <a href="index.html" >
+                            <img src="logo(6).png" alt="" style="margin-top:-13px">
+                        </a>
+                    </div>
+				<!-- /logo -->
+			</div>
+			<!-- main menu -->
+			<nav class="collapse navbar-collapse navbar-right" role="navigation">
+				<div class="main-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="ManagerMenu.jsp">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact.html">Contact</a></li>
+
+					</ul>
+				</div>
+			</nav>
+			<!-- /main nav -->
+		</div>
+	</header>
+
+	<!-- 
+        ================================================== 
+            Global Page Section Start
+        ================================================== -->
+	<section class="global-page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block">
+						<h2>Create Account</h2>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 
+        ================================================== 
+            Company Description Section Start
+        ================================================== -->
+	<form name="table" action="createacc" onsubmit="return digitnumeric()">
+		<section class="company-description">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay=".3s">
+					
+					</div>
+
+
+					<div class="form-group">
+						<label for="name" class="cols-sm-2 control-label" required>Customer
+							Id</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+
+								<span class="input-group-addon"><i class="fa fa-user fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									name="custid" id="custid" placeholder="Enter customer id"
+									 />
+
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label for="name" class="cols-sm-2 control-label">Deposit
+							Amount</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa"
+									aria-hidden="true"></i></span> <input type="text" class="form-control"
+									name="depamt" id="depamt"
+									placeholder="Enter deposit amount" />
+							</div>
+						</div>
+
+					</div>
+
+
+					<div class="form-group">
+						<label for="name" class="cols-sm-2 control-label">Account
+							Type</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+
+								<span class="input-group-addon"><i class="fa fa-user fa"
+									aria-hidden="true"></i></span> <select name="acctype" id="acctype"
+									class="form-control">
+									<option value="savings">Savings</option>
+									<option value="current">Current</option>
+
+								</select>
+							</div>
+						</div>
+					</div>
+
+					
+
+					<div class="form-group">
+						<div class="row">
+							<div class="cols-sm-10">
+								<div class="col-md-3">
+									<input type="submit" name="submit" id="submit" tabindex="4"
+										class="form-control btn btn-success" value="submit">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</form>
+
+	<section id="call-to-action">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block"></div>
+				</div>
+
+			</div>
+		</div>
+	
+	</section>
+	<!--
+        ==================================================
+        Footer Section Start
+        ================================================== -->
+	<footer id="footer">
+		<div class="container">
+			<div class="col-md-8">
+				<p class="copyright">
+					Copyright: <span>2017</span> . Design and Developed by Crazy
+					Project Group
+				</p>
+			</div>
+			<div class="col-md-4">
+				<!-- Social Media -->
+				<ul class="social">
+					<li><a href="#" class="Facebook"> <i
+							class="ion-social-facebook"></i>
+					</a></li>
+					<li><a href="#" class="Twitter"> <i
+							class="ion-social-twitter"></i>
+					</a></li>
+					<li><a href="#" class="Linkedin"> <i
+							class="ion-social-linkedin"></i>
+					</a></li>
+					<li><a href="#" class="Google Plus"> <i
+							class="ion-social-googleplus"></i>
+					</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- /#footer -->
+
+</body>
+</html>
